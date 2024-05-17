@@ -38,5 +38,6 @@ io.on("connection", (socket) => {
     io.to(to).emit("peer:nego:final", { from: socket.id, answer });
   });
 });
-app.listen(5000, () => console.log("HTTP Server started"));
-module.exports = app;
+
+// app.listen(5000, () => console.log("HTTP Server started"));
+module.exports =io;
