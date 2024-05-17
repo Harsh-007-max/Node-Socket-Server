@@ -1,3 +1,3 @@
-import io from "../index";
+import app from "../index";
 
-export default io;
+export default app;

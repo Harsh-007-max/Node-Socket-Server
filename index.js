@@ -1,4 +1,8 @@
 const { Server } = require("socket.io");
+const express = require("express");
+const cors = require("cors");
+const app = express();
+app.use(cors());
 const io = new Server(8000, {
   cors: {
     origin: "http://localhost:3000",
@@ -34,4 +38,6 @@ io.on("connection", (socket) => {
     io.to(to).emit("peer:nego:final", { from: socket.id, answer });
   });
 });
-module.exports = io;
+app.use("/", io);
+app.listen(8000, () => console.log("HTTP Server started"));
+module.exports = app;
